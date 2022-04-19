@@ -1,0 +1,150 @@
+:root {
+    --first: #FBEEDF;
+    --second: #A2DEBD;
+    --third: #8384DF;
+    --fourth: #B79FF1;
+    --fifth: #F9AFEC;
+    --sixth: #FFD5FA;
+    --seventh: #3A6AD0;
+    --started: #fa5b5b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'AbrilFatface';
+    src: url(/fonts/AbrilFatface-Regular.ttf) format("truetype");
+}
+
+body {
+    background: #111;
+    font-family: 'AbrilFatface';
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.clock-container {
+    position: relative;
+    margin: 40px auto;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: var(--seventh);
+}
+
+h1.title {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: var(--sixth);
+}
+
+h3.subtitle {
+    color: var(--first);
+    margin: 5px auto;
+}
+
+.total-time {
+    color: var(--first);
+}
+
+.time-box {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    background: var(--second);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.time-box.active {
+    background: var(--started);
+}
+
+.time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--seventh);
+    font-size: 2.6rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    pointer-events: none;
+}
+
+.time.active {
+    color: var(--first);
+}
+
+
+/* SVGS  */
+
+svg.svg-seconds {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    fill: var(--second);
+    stroke: var(--third);
+    stroke-width: 0.5;
+    stroke-dasharray: 63;
+}
+
+svg.svg-seconds.active {
+    stroke: var(--started);
+}
+
+svg.svg-minutes {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    fill: transparent;
+    stroke: var(--fourth);
+    stroke-width: 0.6;
+    stroke-dasharray: 63;
+}
+
+svg.svg-hours {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    fill: transparent;
+    stroke: var(--seventh);
+    stroke-width: 3;
+    stroke-dasharray: 63;
+}
+
+@media(max-width: 768px) {
+    .time {
+        font-size: 2.2rem;
+    }
+    .clock-container {
+        width: 250px;
+        height: 250px;
+    }
+    svg.svg-hours {
+        width: 250px;
+        height: 250px;
+    }
+    svg.svg-seconds {
+        width: 300px;
+        height: 300px;
+    }
+    svg.svg-minutes {
+        width: 320px;
+        height: 320px;
+    }
+}
